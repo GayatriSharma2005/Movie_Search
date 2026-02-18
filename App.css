@@ -1,0 +1,342 @@
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body,#root{
+  height:100%;
+  width:100%;
+  font-family:"Poppins",sans-serif;
+}
+
+/* DARK & LIGHT THEME */
+body.dark{
+  background:#000;
+  color:white;
+}
+
+body.light{
+  background:#f5f5f5;
+  color:#111;
+}
+
+/* NAVBAR */
+.navbar{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 50px;
+  background:#000;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  color:#e50914;
+  font-size:24px;
+  font-weight:bold;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+  font-size:16px;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#e50914;
+}
+
+/* THEME BUTTON */
+.theme-btn{
+  background:#222;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  color:white;
+}
+
+/* HERO */
+/* HERO SECTION */
+.hero {
+  height: calc(100vh - 70px);   /* full screen minus navbar */
+  width: 100%;
+
+  background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba")
+    center/cover no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  position: relative;
+  margin-top: 0;   /* remove extra space */
+}
+.movie-grid p{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+/* Dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+/* Keep text above overlay */
+.hero h1,
+.hero p,
+.search-box,
+.start-text {
+  position: relative;
+  z-index: 2;
+}
+.start-text{
+  
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fav-msg {
+  text-align: center;
+  color: #00ff9c;
+  font-size: 14px;
+  padding-bottom: 8px;
+}
+body.light .navbar {
+  background: white;
+  color: black;
+}
+
+body.light .movie-card {
+  background: #ffffff;
+}
+.fav-msg {
+  text-align: center;
+  color: #00ff9c;
+  font-size: 14px;
+  padding-bottom: 8px;
+  animation: fade 2s ease;
+}
+
+@keyframes fade {
+  0% {opacity:0}
+  20% {opacity:1}
+  80% {opacity:1}
+  100% {opacity:0}
+}
+.movie-card button {
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: #e50914;
+  color: white;
+  border: none;
+}
+.detail-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+}
+
+.detail-card{
+  max-width:1000px;
+  background:#111;
+  border-radius:15px;
+  display:flex;
+  gap:30px;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+
+.detail-card img{
+  width:300px;
+  border-radius:10px;
+}
+
+.detail-info{
+  flex:1;
+}
+
+.fav-btn{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:#e50914;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+
+
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.start-text {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  margin-bottom:20px;
+  color:#ccc;
+}
+.search{
+  color:white;
+}
+
+.search-box{
+  display:flex;
+  gap:10px;
+}
+
+.search-box input{
+  padding:12px;
+  width:300px;
+  border-radius:5px;
+  border:none;
+}
+
+.search-box button{
+  padding:12px 25px;
+  border:none;
+  border-radius:5px;
+  background:#e50914;
+  color:white;
+  cursor:pointer;
+}
+
+/* MOVIE GRID */
+.movie-grid{
+  width:100%;
+  min-height:40vh;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:25px;
+  padding:40px;
+}
+
+/* MOVIE CARD */
+.movie-card{
+  background:#111;
+  border-radius:10px;
+  overflow:hidden;
+  transition:.3s;
+  box-shadow:0 10px 20px rgba(0,0,0,0.5);
+}
+
+.movie-card:hover{
+  transform:scale(1.05);
+}
+
+.movie-card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+}
+
+.card-info{
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.card-info h3{
+  font-size:14px;
+}
+
+.card-info button{
+  background:none;
+  border:none;
+  color:#e50914;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* FAVORITES EMPTY */
+.empty{
+  
+}
+.container{
+  text-align: center;
+}
+
+/* DETAILS PAGE */
+.details{
+  width:100%;
+  min-height:80vh;
+  display:flex;
+  gap:40px;
+  padding:40px;
+}
+
+.details img{
+  width:300px;
+  border-radius:10px;
+}
+
+.back-btn{
+  margin:20px;
+  padding:10px 20px;
+  background:#e50914;
+  border:none;
+  border-radius:5px;
+  color:white;
+  cursor:pointer;
+}
+.center{
+  text-align: center;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero{
+    padding:40px;
+  }
+  .hero h1{
+    font-size:28px;
+  }
+  .details{
+    flex-direction:column;
+    align-items:center;
+  }
+}
